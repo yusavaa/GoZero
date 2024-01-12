@@ -1,5 +1,5 @@
-Nama Tim : Mudah Diingat
-Anggota : - (Hustler) Novera Prestiana Putri
-          - (Hipster) Diena Mukafasyadiah
-          - (Hipster) Kasyiful Kurobi Alqorrosyai'
-          - (Hacker) Fath Yusava Arden
+Nama Tim : Mudah Diingat<br>
+Anggota : - (Hustler) Novera Prestiana Putri<br>
+          - (Hipster) Diena Mukafasyadiah<br>
+          - (Hipster) Kasyiful Kurobi Alqorrosyai'<br>
+          - (Hacker) Fath Yusava Arden<br>
