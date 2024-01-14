@@ -3,12 +3,11 @@ package models
 import (
 	"GoZero/config"
 	"GoZero/entities"
-	"database/sql"
 	"net/http"
 )
 
-func GetLoginUser(w http.ResponseWriter, r *http.Request) *entities.User {
-	session := config.GetSession(r, "loginID")
+func GetLoginUser(w http.ResponseWriter, r *http.Request) entities.User {
+	session, _ := config.Store.Get(r, config.SESSION_ID)
 
 	loginID, ok := session.Values["loginID"].(int)
 	if !ok {
@@ -18,39 +17,34 @@ func GetLoginUser(w http.ResponseWriter, r *http.Request) *entities.User {
 	rows := config.DB.QueryRow(`SELECT * FROM users WHERE user_id = ?`, loginID)
 
 	var user entities.User
-	if err := rows.Scan(&user.ID, &user.Username, &user.Password); err != nil {
-		if err == sql.ErrNoRows {
-			return nil
-		}
-		panic(err)
-	}
+	rows.Scan(&user.ID, &user.Username, &user.Password, &user.Point)
 
-	return &user
+	return user
 }
 
 func Login(username string, password string, w http.ResponseWriter, r *http.Request) bool {
-	login := false
+	var flag bool
 
 	rows := config.DB.QueryRow(`SELECT * FROM users WHERE username = ?`, username)
 
 	var user entities.User
-	if err := rows.Scan(&user.ID, &user.Username, &user.Password); err != nil {
-		panic(err)
+	if err := rows.Scan(&user.ID, &user.Username, &user.Password, &user.Point); err != nil {
+		flag = false
 	}
 
 	if user.Password == password {
-		session := config.GetSession(r, "loginID")
+		session, _ := config.Store.Get(r, config.SESSION_ID)
 
 		session.Values["loginID"] = user.ID
 		session.Save(r, w)
 
-		login = true
+		flag = true
 	}
 
-	return login
+	return flag
 }
 
-func Create(user entities.User) int {
+func Create(user entities.User) bool {
 	result, err := config.DB.Exec(`
 		INSERT INTO users (username, password)
 		VALUE (?, ?)`,
@@ -66,5 +60,5 @@ func Create(user entities.User) int {
 		panic(err)
 	}
 
-	return int(lastInsertId)
+	return lastInsertId > 0
 }

@@ -7,19 +7,12 @@ import (
 	"github.com/gorilla/sessions"
 )
 
-var Store = sessions.NewCookieStore([]byte(""))
+const SESSION_ID = "go_auth"
 
-func GetSession(r *http.Request, sessionName string) *sessions.Session {
-	session, err := Store.Get(r, sessionName)
-	if err != nil {
-		panic(err)
-	}
-
-	return session
-}
+var Store = sessions.NewCookieStore([]byte("fnaatfhisa"))
 
 func DeleteSession(w http.ResponseWriter, r *http.Request) {
-	session, err := Store.Get(r, "loginID")
+	session, err := Store.Get(r, SESSION_ID)
 	if err != nil {
 		panic(err)
 	}

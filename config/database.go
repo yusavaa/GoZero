@@ -10,7 +10,7 @@ import (
 var DB *sql.DB
 
 func ConnectDB() {
-	db, err := sql.Open("mysql", "root:@/chatapp")
+	db, err := sql.Open("mysql", "root:@/gozero")
 	if err != nil {
 		panic(err)
 	}

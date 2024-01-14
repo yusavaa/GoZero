@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"GoZero/config"
 	"GoZero/models"
 	"html/template"
 	"net/http"
@@ -14,17 +13,8 @@ func ShowHomePage(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 
-	isLogin := false
-
-	if session := config.GetSession(r, "loginID"); session.Values["loginID"].(int) > 0 {
-		isLogin = true
-	}
-
-	userData := models.GetLoginUser(w, r)
-
 	data := map[string]interface{}{
-		"IsLogin": isLogin,
-		"User":    userData,
+		"user": models.GetLoginUser(w, r),
 	}
 
 	tmpl.Execute(w, data)
