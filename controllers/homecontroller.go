@@ -15,7 +15,9 @@ func ShowHomePage(w http.ResponseWriter, r *http.Request) {
 
 	data := map[string]interface{}{
 		"user": models.GetLoginUser(w, r),
+		"mission": models.GetAvailableMission(r, 1),
 	}
 
 	tmpl.Execute(w, data)
 }
+

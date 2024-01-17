@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"GoZero/config"
 	"GoZero/entities"
 	"GoZero/models"
 	"html/template"
@@ -28,15 +27,9 @@ func RegisterForm(w http.ResponseWriter, r *http.Request) {
 	user.Username = r.FormValue("username")
 	user.Password = r.FormValue("password")
 
-	loginID := models.Create(user)
-
-	session, err := config.Store.Get(r, "loginID")
-	if err != nil {
-		panic(err)
+	if models.Create(user) {
+		if models.Login(user.Username, user.Password, w, r) {
+			http.Redirect(w, r, "/", http.StatusSeeOther)
+		}
 	}
-
-	session.Values["loginID"] = loginID
-	session.Save(r, w)
-
-	http.Redirect(w, r, "/", http.StatusSeeOther)
 }

@@ -20,6 +20,12 @@ func main() {
 
 	mux.HandleFunc("/logout", config.DeleteSession)
 
+	mux.HandleFunc("/gallery", controllers.ShowGalleryPage)
+	mux.HandleFunc("/gallery/upload", controllers.ShowUploadPage)
+	mux.HandleFunc("/gallery/upload/process", controllers.UploadFile)
+
+	mux.Handle("/images/", http.StripPrefix("/images/", http.FileServer(http.Dir("images"))))
+
 	server := http.Server{
 		Addr:    "localhost:8080",
 		Handler: mux,

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <h3>Upload Image</h3>
+   <a href="/gallery">Back</a>
+   <form action="/gallery/upload/process" enctype="multipart/form-data" method="post">
+      <input type="text" name="title" placeholder="title">
+      <input type="file" name="file" accept="image/*">
+      <input type="text" name="description" placeholder="description">
+      <button>Upload</button>
+   </form>
+</body>
+</html>

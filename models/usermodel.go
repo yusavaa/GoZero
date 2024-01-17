@@ -8,11 +8,7 @@ import (
 
 func GetLoginUser(w http.ResponseWriter, r *http.Request) entities.User {
 	session, _ := config.Store.Get(r, config.SESSION_ID)
-
-	loginID, ok := session.Values["loginID"].(int)
-	if !ok {
-		loginID = 0
-	}
+	loginID, _ := session.Values["loginID"].(int)
 
 	rows := config.DB.QueryRow(`SELECT * FROM users WHERE user_id = ?`, loginID)
 
