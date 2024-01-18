@@ -8,5 +8,5 @@ GoZero from Team Mudah Diingat
 
 <h3>How to Run GoZero?</h3>
 <ol>
-  <li>Import <code>gozero.sql<code> to MySQL server</li>
+  <li>Import `gozero.sql` to MySQL server</li>
 </ol>
