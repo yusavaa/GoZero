@@ -7,6 +7,13 @@
 - `Hacker` Fath Yusava Arden
 
 ## Product Preview
+GoZero is a website-based application that focuses on `Zero Waste` from SDG 11, namely Sustainable Cities and Communities. GoZero will not only empower individuals but also contribute to a more sustainable and inclusive urban environment, reducing the environmental impact of cities and promoting responsible consumption and production patterns.<br><br>
+GoZero is develop by using:
+- Go for back-end
+- HTML, CSS, and JS for front-end
+- MySQL for database
+
+### Feature
 - Home Page
    ![image](https://github.com/yusavaa/GoZero/assets/120007453/3e3847d2-4051-4412-9843-3683d7b403b1)
 - Community Gallery
@@ -15,7 +22,7 @@
    ![image](https://github.com/yusavaa/GoZero/assets/120007453/81bff3eb-ca95-4de3-99e7-017abab0c619)
 - Quiz
    ![image](https://github.com/yusavaa/GoZero/assets/120007453/301487f5-7bb3-420a-8338-738c50733cf0)
-
+- Etc
 
 ## Requirements
 - Go 1.18 or higher. We aim to support the 3 latest versions of Go.
