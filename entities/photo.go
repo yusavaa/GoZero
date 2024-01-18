@@ -6,4 +6,5 @@ type Photo struct {
 	Image       string
 	Description string
 	AuthorID    int
+	AuthorName  string
 }

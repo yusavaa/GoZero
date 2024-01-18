@@ -1,0 +1,96 @@
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background: #fafafa;
+}
+
+.info {
+  padding-top: 100px;
+  width: 65%;
+  margin: auto;
+}
+
+.post-container {
+  margin: 50px auto 100px auto;
+  width: 65%;
+  height: 150px;
+  background-color: #fff;
+  border: 1px solid #dddfe2;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.post-container:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.user {
+  display: flex;
+  align-items: center;
+}
+
+.user img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.username {
+  font-weight: bold;
+  color: #1877f2;
+}
+
+.post-img {
+  display: flex;
+  align-items: center;
+}
+
+.post-img textarea {
+  width: calc(100% - 20px);
+  border: none;
+  resize: none;
+  font-size: 16px;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.file-label,
+.post-btn {
+  color: #1877f2;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.file-label:hover,
+.post-btn:hover {
+  color: #155d91;
+}
+
+.file-label i,
+.post-btn i {
+  margin-right: 8px;
+}
+
+.post-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.post-actions button {
+  padding: 10px 20px 10px 20px;
+  color: white;
+  background-color: #008957;
+  border-radius: 5px;
+  border: none;
+}

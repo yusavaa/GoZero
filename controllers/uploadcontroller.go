@@ -19,12 +19,16 @@ func ShowUploadPage(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	tmpl, err := template.ParseFiles(path.Join("views", "page", "upload.html"))
+	tmpl, err := template.ParseFiles(path.Join("views", "page", "upload.html"), path.Join("views", "partials", "navbar.html"), path.Join("views", "partials", "footer.html"))
 	if err != nil {
 		panic(err)
 	}
 
-	tmpl.Execute(w, nil)
+	data := map[string]interface{}{
+		"user":   models.GetLoginUser(w, r),
+	}
+
+	tmpl.Execute(w, data)
 }
 
 func UploadFile(w http.ResponseWriter, r *http.Request) {
@@ -40,7 +44,7 @@ func UploadFile(w http.ResponseWriter, r *http.Request) {
 	fmt.Printf("File Size: %+v\n", handler.Size)
 	fmt.Printf("MIME Header: %+v\n", handler.Header)
 
-	tempFile, err := os.CreateTemp("images", "image-*.jpg")
+	tempFile, err := os.CreateTemp("views/images", "image-*.jpg")
 	if err != nil {
 		panic(err)
 	}
@@ -63,7 +67,8 @@ func UploadFile(w http.ResponseWriter, r *http.Request) {
 	photo.AuthorID = session.Values["loginID"].(int)
 
 	if models.StorePhotoToDB(photo) {
+		models.Complete(3, r)
+		models.UpdatePoint(200, w, r)
 		http.Redirect(w, r, "/gallery", http.StatusSeeOther)
 	}
-
 }

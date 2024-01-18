@@ -24,7 +24,19 @@ func main() {
 	mux.HandleFunc("/gallery/upload", controllers.ShowUploadPage)
 	mux.HandleFunc("/gallery/upload/process", controllers.UploadFile)
 
-	mux.Handle("/images/", http.StripPrefix("/images/", http.FileServer(http.Dir("images"))))
+	mux.HandleFunc("/quiz", controllers.ShowQuizPage)
+
+	mux.HandleFunc("/article", controllers.ShowArticlePage)
+	mux.HandleFunc("/article/read", controllers.ShowArticleDetilPage)
+
+	mux.HandleFunc("/point", controllers.ShowPointPage)
+
+	mux.HandleFunc("/banksampah", controllers.ShowBankMapPage)
+	mux.HandleFunc("/bulkstore", controllers.ShowBulkMapPage)
+
+	mux.HandleFunc("/mission", controllers.ShowMissionPage)
+
+	mux.Handle("/views/", http.StripPrefix("/views/", http.FileServer(http.Dir("views"))))
 
 	server := http.Server{
 		Addr:    "localhost:8080",

@@ -1,18 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Document</title>
-</head>
-<body>
-   <h3>Upload Image</h3>
-   <a href="/gallery">Back</a>
-   <form action="/gallery/upload/process" enctype="multipart/form-data" method="post">
-      <input type="text" name="title" placeholder="title">
-      <input type="file" name="file" accept="image/*">
-      <input type="text" name="description" placeholder="description">
-      <button>Upload</button>
-   </form>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/views/style/navbar.css" />
+    <link rel="stylesheet" href="/views/style/upload.css" />
+    <link rel="stylesheet" href="/views/style/footer.css" />
+  </head>
+  <body>
+    {{ template "navbar.html" . }}
+
+    <div class="info">
+      <h1>Upload Image</h1>
+    </div>
+    <div class="post-container">
+      <div class="user">
+        <img src="/views/assets/fropil.png" alt="Profile Picture" />
+        <span class="username">{{ .user.Username }}</span>
+      </div>
+      <form
+        action="/gallery/upload/process"
+        enctype="multipart/form-data"
+        method="post"
+      >
+        <div class="post-img">
+          <textarea
+            name="description"
+            placeholder="What's on your mind?"
+          ></textarea>
+        </div>
+        <div class="post-actions">
+          <input
+            type="file"
+            name="file"
+            id="imageInput"
+            accept="image/*"
+          />
+          <button>Upload</button>
+        </div>
+      </form>
+    </div>
+
+    {{ template "footer.html" . }}
+  </body>
 </html>

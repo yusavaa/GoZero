@@ -3,23 +3,138 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to GoZero</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="/views/style/navbar.css" />
+    <link rel="stylesheet" href="/views/style/home.css" />
+    <link rel="stylesheet" href="/views/style/footer.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
-    {{if ne .user.Username ""}}
-    <h3>Welcome to GoZero, {{ .user.Username }}</h3>
-    <h5>{{ .user.Point }} Point</h5>
-    <a href="/logout">Logout</a>
-    {{else}}
-    <a href="/login">Login</a>
-    {{end}}
+    <header>
+      {{ template "navbar.html" . }}
 
-    <a href="/gallery">Community Gallery</a>
+      <div class="judul">
+        <div class="container">
+          <div class="box-judul">
+            <div class="box">
+              <h1>Yuk, Mulai Hidup Zero Waste! Daftar GoZero Sekarang!</h1>
+              <div class="button"><a href="">Daftar</a></div>
+            </div>
+            <div class="box">
+              <img src="/views/assets/index.png" alt="" style="height: 400px" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
 
-    <ul>
-      {{ range .mission }}
-      <li>{{ .Description }}, {{ .Reward }} Points</li>
-      {{ end }}
-    </ul>
+    <div class="bonus">
+      <div class="box">
+        <div class="box-bonus">
+          <img src="/views/assets/Rectangle 20.png" alt="" />
+          <div class="prev">
+            <a href="/banksampah" class="button">Peta Interaktif</a>
+          </div>
+        </div>
+        <div class="box-bonus">
+          <img src="/views/assets/Rectangle 22.png" alt="" />
+          <div class="prev">
+            <a href="/mission" class="button">Tantangan</a>
+          </div>
+        </div>
+        <div class="box-bonus">
+          <img src="/views/assets/Rectangle 24.png" alt="" />
+          <div class="prev">
+            <a href="/point" class="button">Point</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="intro">
+      <div class="box">
+        <div class="box-intro">
+          <div class="header">
+            <h2>Apa Sih Zero Waste Itu?</h2>
+          </div>
+          <p>
+            gaya hidup meminimalisir sampah yang berangkat dari kesadaran untuk
+            mengurangi penggunaan benda-benda sekali pakai. Selain itu, prinsip
+            ini juga melahirkan metode 5R (Refuse, Reuse, Reduce, Recycle, and
+            Repair) yang terbukti mampu menciptakan iklim perekonomian
+            berkelanjutan dan mengurangi dampak buruk pada lingkungan 12. Dengan
+            menerapkan gaya hidup zero waste, kita dapat ikut berkontribusi
+            untuk menjaga lingkungan dan menciptakan masa depan yang lebih
+            berkelanjutan. Yuk, mari kita mulai hidup zero waste! 🌿
+          </p>
+        </div>
+        <div class="box-intro1">
+          <div class="gambar">
+            <img src="../asset/intro.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="galery">
+      <div class="header">
+        <div class="box-header">
+          <p>Gallery GoZero</p>
+          <h2>Kunjungi Gallery Gozero</h2>
+        </div>
+        <div class="box-view">
+          <a href="/gallery">View All</a>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="box-galery">
+          {{ range .photos }}
+          <div class="pendek">
+            <img
+              src="/views/images/{{ .Image }}"
+              alt=""
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+    <div class="artikel">
+      <div class="header">
+        <div class="box-header">
+          <p>Artikel GoZero</p>
+          <h2>Kunjungi Artikel Terbaru</h2>
+        </div>
+        <div class="box-view">
+          <a href="/article">View All</a>
+        </div>
+      </div>
+
+      <div class="main">
+        <div class="box-main">
+          {{ range .articles }}
+          <div class="box">
+            <img src="/views/assets/index.png" alt="" />
+            <p>21 januari 2024</p>
+            <h3>{{ .Title }}</h3>
+            <p>
+              {{ .Text }}
+            </p>
+            <a href="/article/read?id={{ .ID }}">Read More </a>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+
+    {{ template "footer.html" }}
   </body>
 </html>

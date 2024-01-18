@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <title>Peta</title>
+    <link rel="stylesheet" href="/views/style/peta.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    {{ template "navbar.html" . }}
+
+    <div class="intro">
+        <div class="box">
+            <div class="box-intro">
+                <div class="header">
+                    <h2>Peta Bank Sampah</h2>
+                </div>
+                <p>
+                   Peta interaktif adalah fitur penting dari situs web GoZero. Dengan peta ini, Anda dapat menemukan lokasi zero-waste di wilayah Anda dengan mudah dan cepat.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-peta">
+        <div class="alternatif">
+            <h2>kunjungi Lokasi</h2>
+            <div class="btn-container">
+                <a href="/bulkstore" class="btn">Bulk Store</a>
+                <a href="/banksampah" class="btn">Bank Sampah</a>
+            </div>
+            <div class="info-box">
+                <div class="image-container">
+                    <img src="/views/assets/sam1.jpg" alt="Location Image">
+                </div>
+                <div class="info-content">
+                    <h3>Bank Sampah Semi</h3>
+                    <p>sebuah lembaga non-profit yang bergerak di bidang pengelolaan sampah berbasis komunitas. Bank sampah ini berlokasi di Depok, Daerah Istimewa Yogyakarta.</p>
+                    <a href="https://maps.app.goo.gl/4BcQ8rv4JafXCsL38" target="_blank">
+                        <i class="fas fa-map-marked-alt"></i> Maps
+                    </a>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="image-container">
+                    <img src="/views/assets/sam2.jpg" alt="Location Image">
+                </div>
+                <div class="info-content">
+                    <h3>Bank Sampah Blazent</h3>
+                    <p>bank sampah yang melayani jasa pembuangan sampah di Yogyakarta. Bank sampah ini menerima berbagai jenis sampah, termasuk sampah anorganik dan organik.</p>
+                    <a href="https://maps.app.goo.gl/p8vDVHETE3HM7Xof9" target="_blank">
+                        <i class="fas fa-map-marked-alt"></i> Maps
+                    </a>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="image-container">
+                    <img src="/views/assets/sam3.jpg" alt="Location Image">
+                </div>
+                <div class="info-content">
+                    <h3>Bank Sampah Simul</h3>
+                    <p>bank sampah yang berlokasi di Kelurahan Bener, Kecamatan Tegalrejo, Kota Yogyakarta. Bank sampah ini didirikan pada tahun 2010 oleh sekelompok warga yang peduli terhadap lingkungan.</p>
+                    <a href="https://maps.app.goo.gl/HjBdxtmbkoZyQcBr6" target="_blank">
+                        <i class="fas fa-map-marked-alt"></i> Maps
+                    </a>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="image-container">
+                    <img src="/views/assets/sam4.jpg" alt="Location Image">
+                </div>
+                <div class="info-content">
+                    <h3>Bank Sampah Rejodani</h3>
+                    <p> sebuah bank sampah yang berlokasi di Desa Rejodani, Kecamatan Sariharjo, Kabupaten Sleman, Daerah Istimewa Yogyakarta. </p>
+                    <a href="https://maps.app.goo.gl/Kr3fQr9kDouDrCsM9" target="_blank">
+                        <i class="fas fa-map-marked-alt"></i>  Maps
+                    </a>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="image-container">
+                    <img src="/views/assets/sam5.jpg" alt="Location Image">
+                </div>
+                <div class="info-content">
+                    <h3>Bank Sampah Sekarwangi</h3>
+                    <p>sebuah bank sampah yang berlokasi di RW 08 Kelurahan Pulogebang, Kecamatan Cakung, Jakarta Timur. Bank sampah ini didirikan pada tahun 2022 oleh sekelompok warga yang peduli terhadap lingkungan.</p>
+                    <a href="https://maps.app.goo.gl/HjBdxtmbkoZyQcBr6" target="_blank">
+                        <i class="fas fa-map-marked-alt"></i> Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id='map'></div>
+    </div>
+
+    {{ template "footer.html" }}
+
+    <script>
+        var locations = [
+        ["Bank Sampah Semi", -7.732334523569332, 110.3323427108464],
+        ["Bank Sampah Blazent", -7.802638762713879, 110.37796741084706],
+        ["Bank Sampah Simul", -7.779132741741052, 110.35591969550256],
+        ["Bank Sampah Rejodani", -7.709276080196621, 110.38964344338724],
+        ["Bank Sampah Sekarwangi", -7.692483063188577, 110.38173253782952]
+    ];
+
+    var map = L.map('map').setView([-7.796275454945423, 110.36832066219812], 11);
+
+    mapLink =
+        '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+    L.tileLayer(
+        'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; ' + mapLink + ' Contributors',
+            maxZoom: 18,
+        }).addTo(map);
+
+    for (var i = 0; i < locations.length; i++) {
+        var marker = new L.marker([locations[i][1], locations[i][2]])
+            .bindPopup('<b>' + locations[i][0] + '</b><br><a href="https://www.google.com/maps?q=' + locations[i][1] + ',' + locations[i][2] + '" target="_blank">Open in Google Maps</a>')
+            .addTo(map);
+    }
+    </script>
+</body>
+</html>

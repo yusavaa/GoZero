@@ -1,0 +1,20 @@
+<div class="navbar">
+  <div class="container">
+    <div class="box-navbar">
+      <div class="logo">
+        <h2><img src="" style="width: 70px" alt="" />GoZero</h2>
+      </div>
+      <ul class="menu">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/article">Article</a></li>
+        <li><a href="/gallery">Community Gallery</a></li>
+        {{if ne .user.Username ""}}
+        <li><h5>Welcome, {{ .user.Username }}</h5></li>
+        <li><h5>{{ .user.Point }} Points</h5></li>
+        {{else}}
+        <li class="active"><a href="/register">Register Now</a></li>
+        {{end}}
+      </ul>
+    </div>
+  </div>
+</div>

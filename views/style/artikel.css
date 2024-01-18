@@ -1,0 +1,162 @@
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background: #fafafa;
+}
+
+/* Article Styles */
+
+
+h4 {
+  text-align: left;
+  margin: 0;
+  padding: 10px;
+}
+
+.artikel-text p {
+  color: #666666;
+  font-family: "poppins", sans-serif;
+  font-size: 18px;
+}
+
+.p2 {
+  color: #666666;
+  font-family: "poppins", sans-serif;
+  font-size: 18px;
+  text-align: left;
+  padding: 10px;
+  margin: 0;
+}
+
+img.large {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.layar-artikel {
+  padding-top: 150px;
+}
+
+.header {
+  padding: 10px 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.gambar {
+  height: 600px;
+  padding: 20px 50px;
+  background-size: cover;
+  background-image: url("../asset/artikel1.jpeg");
+}
+
+h1 {
+  text-align: center;
+}
+
+.paragraf {
+  padding: 50px;
+}
+
+.paragraf p {
+  margin-bottom: 10px;
+}
+
+/* Button Styles */
+.btn {
+  background-color: #3b9675;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+  background-color: #2e7259;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.pr {
+  font-size: 12px;
+  color: red;
+}
+
+/* Article Container Styles */
+.container-artikel {
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  gap: 5%;
+}
+
+.artikel-box {
+  background-color: #fff;
+  border: 1px solid #f2efef;
+  margin: 30px;
+  border-radius: 5px;
+  padding: 15px;
+  height: 500px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.artikel-box:hover {
+  transform: scale(1.1);
+}
+
+.artikel-box a {
+  font-family: "poppins", sans-serif;
+  color: skyblue;
+  text-align: left;
+  font-size: 15px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  padding: 5px 10px;
+}
+
+.artikel-box a:hover {
+  color: #c86b85;
+}
+
+.gambar-artikel {
+  width: 100%;
+  height: 250px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.gambar-artikel img {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+.artikel-text {
+  font-family: "poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  color: #ababab;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+#artikel h2 {
+  font-family: var(--Playfair);
+  font-size: 2.4rem;
+}
+
+#artikel {
+  width: 80%;
+  text-align: center;
+  margin: auto;
+}

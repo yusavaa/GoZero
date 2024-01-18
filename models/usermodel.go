@@ -58,3 +58,16 @@ func Create(user entities.User) bool {
 
 	return lastInsertId > 0
 }
+
+func UpdatePoint(point int, w http.ResponseWriter, r *http.Request) bool {
+	user := GetLoginUser(w, r)
+	newPoint := user.Point + point
+	flag := true
+
+	_, err := config.DB.Query(`UPDATE users SET point = ? WHERE user_id = ?`, newPoint, user.ID)
+	if err != nil {
+		flag = false
+	}
+	
+	return flag
+}

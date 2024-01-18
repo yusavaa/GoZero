@@ -1,18 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Register to GoZero</title>
-</head>
-<body>
-   <h3>Register to GoZero</h3>
-   <form action="/register/process" method="post">
-      <input type="text" name="fullname" placeholder="fullname">
-      <input type="text" name="username" placeholder="username">
-      <input type="password" name="password" placeholder="password">
-   <button>Login</button>
-   </form>
-   <p>Already have an account? <a href="/login">Login</a></p>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zero Waste</title>
+    <link rel="stylesheet" href="/views/style/login.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="background">
+      <div class="container">
+        <div class="content">
+          <h2 class="logo"><i class="bx bxl-squarespace"></i>GoZero</h2>
+          <div class="text-sci">
+            <h2>Welcome</h2>
+            <h3>Selamat Datang di Website GoZero</h3>
+            <p>Zero Waste</p>
+
+            <div class="social-icons">
+              <a href=""><i class="bx bxl-linkedin"></i></a>
+              <a href=""><i class="bx bxl-facebook"></i></a>
+              <a href=""><i class="bx bxl-instagram"></i></a>
+              <a href=""><i class="bx bxl-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="logreg-box">
+          <div class="form-box login">
+            <form action="/register/process" method="post">
+              <h2>Register</h2>
+
+              <div class="input-box">
+                <span class="icon"></span>
+                <input type="text" name="username" required />
+                <label>Username</label>
+              </div>
+
+              <div class="input-box">
+                <span class="icon"><i class="bx bx-lock"></i></span>
+                <input type="password" name="password" required />
+                <label>Password</label>
+              </div>
+
+
+              <button class="btn btn-info">Register</button>
+
+              <div class="login-register">
+                <p>Don't have an account?<a href="/login">Login</a></p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="login.js"></script>
+  </body>
 </html>
